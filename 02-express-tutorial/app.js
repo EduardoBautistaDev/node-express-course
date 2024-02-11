@@ -1,13 +1,10 @@
 const express = require('express');
-const path = require('path');
 const app = express();
 
-app.use(express.static('./public'))
-
-app.all('*', (req,res)=>{
-    res.status(404).send('resource not found')
+app.get('/',(req,res)=>{
+    res.json([{name:'john'}, {name:'susan'}])
 })
 
 app.listen(5001,()=>{
-    console.log('serverlistening in 5001')
+    console.log('listening in port 5001')
 })
